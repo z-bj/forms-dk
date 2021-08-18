@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import Car from "./Car";
+
+const redTitle = { fontSize: "50px", color: "red" }; //css inLine
 class Form extends Component {
   state = {
     username: "",
     color: "",
-    colors: ["", "green", "red", "purple", "black", "pink", "yellow"],
+    colors: ["", "green", "red", "purple", "cyan", "pink", "yellow", "brown"],
     comment: "",
   };
 
@@ -30,7 +32,7 @@ class Form extends Component {
     return (
       <div>
         <Car color={this.state.color} height="400" />
-        <h1>Comment</h1>
+        <h1 style={redTitle}>Comment</h1> {/**!inLine CSS*/}
         <form onSubmit={this.handleSubmitForm}>
           <div>
             <label htmlFor="">pseudo</label>
