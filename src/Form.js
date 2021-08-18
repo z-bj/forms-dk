@@ -4,7 +4,7 @@ class Form extends Component {
   state = {
     username: "",
     color: "",
-    colors: ["", "green", "red", "purple", "black", "pink"],
+    colors: ["", "green", "red", "purple", "black", "pink", "yellow"],
     comment: "",
   };
 
@@ -19,12 +19,19 @@ class Form extends Component {
   handleComments = (ev) => {
     this.setState({ comment: ev.target.value });
   };
+
+  handleSubmitForm = (eve) => {
+    eve.preventDefault();
+    console.log(
+      `Username: ${this.state.username} Color: ${this.state.color} Comment: ${this.state.comment} `
+    );
+  };
   render() {
     return (
       <div>
         <Car color={this.state.color} height="400" />
         <h1>Comment</h1>
-        <form action="">
+        <form onSubmit={this.handleSubmitForm}>
           <div>
             <label htmlFor="">pseudo</label>
 
@@ -58,6 +65,7 @@ class Form extends Component {
               onChange={this.handleComments}
             ></textarea>
           </div>
+          <button>validate</button>
         </form>
       </div>
     );
