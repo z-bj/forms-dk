@@ -10,6 +10,10 @@ class Form extends Component {
   handlePseudo = (e) => {
     this.setState({ username: e.target.value });
   };
+
+  handleColor = (event) => {
+    this.setState({ color: event.target.value });
+  };
   render() {
     return (
       <div>
@@ -27,10 +31,19 @@ class Form extends Component {
           </div>
           <div>
             <label htmlFor="">color</label>
-            <select name="" id="">
-              <option value="green">green</option>
-              <option value="red">red</option>
-              <option value="purple">purple</option>
+            <select
+              value={this.state.color}
+              onChange={this.handleColor}
+              name=""
+              id=""
+            >
+              {this.state.colors.map((color, index) => {
+                return (
+                  <option key={index} value={color}>
+                    {color}
+                  </option>
+                );
+              })}
             </select>
           </div>
         </form>
