@@ -2,20 +2,15 @@ import React from "react";
 
 import car from "./Images/car.svg";
 
-const Car = ({ color, height }) => {
+const Car = (props) => {
   return (
-    <svg
-      className="carBorder"
-      width="512"
-      height="512"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
       <g>
         <title>background</title>
         <rect
-          fill={color}
+          fill="none"
           id="canvas_background"
-          height={height}
+          height={props.height}
           width="582"
           y="-1"
           x="-1"
@@ -24,7 +19,7 @@ const Car = ({ color, height }) => {
       <g>
         <title>Layer 1</title>
         <path
-          fill="#e50b4c"
+          fill={props.color}
           fillRule="nonzero"
           strokeWidth="12.257193"
           id="rect3000"

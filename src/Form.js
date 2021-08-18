@@ -5,6 +5,7 @@ class Form extends Component {
     username: "",
     color: "",
     colors: ["", "green", "red", "purple", "black", "pink"],
+    comment: "",
   };
 
   handlePseudo = (e) => {
@@ -14,10 +15,14 @@ class Form extends Component {
   handleColor = (event) => {
     this.setState({ color: event.target.value });
   };
+
+  handleComments = (ev) => {
+    this.setState({ comment: ev.target.value });
+  };
   render() {
     return (
       <div>
-        <Car color="blue" height="400" />
+        <Car color={this.state.color} height="400" />
         <h1>Comment</h1>
         <form action="">
           <div>
@@ -45,6 +50,13 @@ class Form extends Component {
                 );
               })}
             </select>
+          </div>
+          <div>
+            <label htmlFor="">comment</label>
+            <textarea
+              value={this.state.comment}
+              onChange={this.handleComments}
+            ></textarea>
           </div>
         </form>
       </div>
