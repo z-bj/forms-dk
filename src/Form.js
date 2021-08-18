@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-
+import Car from "./Car";
 class Form extends Component {
   render() {
     return (
       <div>
-        Image here
+        <Car />
         <h1>Comment</h1>
         Form
       </div>
