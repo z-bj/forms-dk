@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Car from "./Car";
+import "./Style.css";
 
-const redTitle = { fontSize: "50px", color: "red" }; //css inLine
 class Form extends Component {
   state = {
     username: "",
@@ -29,10 +29,13 @@ class Form extends Component {
     );
   };
   render() {
+    const myClass = this.props.head ? "blue" : "red";
     return (
       <div>
         <Car color={this.state.color} height="400" />
-        <h1 style={redTitle}>Comment</h1> {/**!inLine CSS*/}
+        <h1 className="blue">Your comment</h1>
+        <p className={`${myClass} bigFont`}>I'm red or blue</p>{" "}
+        {/*we use `${}` to avoid having to manage the spacing of the classes in html in the dom because if we are not careful, they stick together and the style is not applied*/}
         <form onSubmit={this.handleSubmitForm}>
           <div>
             <label htmlFor="">pseudo</label>
