@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Car from "./Car";
 import "./Style.css";
+import MyHead from "./MyHeaderOne";
+import styles from "./Style.module.css";
 
 class Form extends Component {
   state = {
@@ -29,12 +31,13 @@ class Form extends Component {
     );
   };
   render() {
-    const myClass = this.props.head ? "blue" : "red";
     return (
       <div>
+        <h1 className={styles.green}>Title 1</h1>
+        <MyHead />
         <Car color={this.state.color} height="400" />
-        <h1 className="blue">Your comment</h1>
-        <p className={`${myClass} bigFont`}>I'm red or blue</p>{" "}
+        <h1>Your comment</h1>
+        <p className="red">I'm red or blue</p>
         {/*we use `${}` to avoid having to manage the spacing of the classes in html in the dom because if we are not careful, they stick together and the style is not applied*/}
         <form onSubmit={this.handleSubmitForm}>
           <div>
